@@ -1,0 +1,28 @@
+--Used for finding items in your inventory--
+Select*from Invoices
+select*from InvoiceLineItems
+select*from GLAccounts
+select*from ContactUpdates
+select*from InvoiceArchive
+select distinct VendorID, PaymentTotal as 'Unique Payments' from Invoices where PaymentTotal between 50 and 300  --This would be useful in a business sense because it would assist in helping the user find the price range of particular objects within their inventory--
+
+select VendorName from Vendors where VendorName like 'U%'
+select VendorName from Vendors where VendorName like 'T%'
+select InvoiceLineItemDescription from InvoiceLineItems where InvoiceLineItemDescription like 'F%'
+
+--letters--
+select VendorName as 'idiots' from Vendors where VendorName between 'a' and 'e'
+--numbers--
+select VendorID as [meme] ,PaymentTotal as [lmao] from Invoices where PaymentTotal between 100 and 400
+--dates--
+select InvoiceID ,InvoiceDate as 'ayyy' from  Invoices where InvoiceDate between '2011-12-08' and '2011-12-20'
+
+
+--In statement with numbers--
+select VendorID, PaymentTotal as 'oof' from Invoices where VendorID IN (123,122,83)
+
+--In statement with dates--
+select VENDORID,InvoiceDate as 'death' from invoices where vendorID in (123)
+
+--table joins
+select VendorID,InvoiceTotal from Invoices inner join InvoiceLineItems on Invoices.VendorID = InvoiceLineItems.InvoiceLineItemAmount
